@@ -68,7 +68,7 @@ def open(instance = 0, connection='default', parameter={}):
     
     wconType = {'default': CBSDKCONNECTION_DEFAULT, 'slave': CBSDKCONNECTION_CENTRAL, 'master': CBSDKCONNECTION_UDP} 
     if not connection in wconType.keys():
-        raise RuntimeError("invalid connection %S" % connection)
+        raise RuntimeError("invalid connection %s" % connection)
      
     cdef cbSdkConnectionType conType = wconType[connection]
     cdef cbSdkConnection con

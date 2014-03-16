@@ -786,6 +786,16 @@ cbSdkResult SdkApp::SdkOpen(UINT32 nInstance, cbSdkConnectionType conType, cbSdk
 // Purpose: sdk stub for SdkApp::SdkOpen
 CBSDKAPI    cbSdkResult cbSdkOpen(UINT32 nInstance, cbSdkConnectionType conType, cbSdkConnection con)
 {
+    printf("nInstance: %d\n", nInstance);
+
+    printf("conType: %d\n", (int)conType);
+    
+    printf("con.nInPort: %d\n", con.nInPort);
+    printf("con.nOutPort: %d\n", con.nOutPort);
+    printf("con.nRecBufSize: %d\n", con.nRecBufSize);
+    printf("con.szInIP: %s\n", (char *)con.szInIP);
+    printf("con.szOutIP: %s\n", (char *)con.szOutIP);
+
     // check if the library is already open
     if (conType < 0 || conType >= CBSDKCONNECTION_CLOSED)
         return CBSDKRESULT_INVALIDPARAM;
