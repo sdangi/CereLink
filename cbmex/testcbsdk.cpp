@@ -41,7 +41,14 @@ cbSdkResult testOpen(void)
     printf("Initializing Cerebus real-time interface %d.%02d.%02d.%02d (protocol cb%d.%02d)...\n", ver.major, ver.minor, ver.release, ver.beta, ver.majorp, ver.minorp);
 
     cbSdkInstrumentType instType;
-    res = cbSdkOpen(INST, conType);
+    // res = cbSdkOpen(INST, conType);
+    cbSdkConnection con;
+    con.szInIP = "255.255.255.255";
+    con.nInPort = 51002;
+    con.szOutIP = "192.168.137.128";
+    con.nOutPort = 51001;
+    con.nRecBufSize = 8388608;
+    res = cbSdkOpen(INST, conType, con);
     switch (res)
     {
     case CBSDKRESULT_SUCCESS:
